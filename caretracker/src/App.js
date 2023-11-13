@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Auth from "./components/authorization-section/Auth";
 import Navbar from "./components/Navbar";
 import {
   Home,
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+          <Route path="/auth" element={<Auth />} />
           <Route path="/" element={<Home />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/note" element={<Note />} />
@@ -30,6 +32,7 @@ function App() {
         </Routes>
       </Router>
     </main>
+
   );
 }
 
