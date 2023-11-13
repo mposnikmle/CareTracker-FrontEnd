@@ -1,3 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
+
+:root {
+  --primary: #0dd093;
+  --secondary: #8fff9f;
+  --backgroundColor: #011b16;
+  --neutral: #b6ffad;
+}
+
+body {
+  background: var(--neutral);
+}
+
+.primary-background {
+  background: var(--primary);
+}
+
+.secondary-background {
+  background: var(--secondary);
+}
+
+.neutral-background {
+  background: var(--neutral);
+}
+
+.font-primary {
+  font-family: Arial, Helvetica, sans-serif;
+
 .navBar {
   background-color: transparent;
   border-style: dotted;
@@ -39,4 +67,9 @@
 
 a {
   text-decoration: none;
+
+}
+
+.bold {
+  font-weight: bold;
 }
