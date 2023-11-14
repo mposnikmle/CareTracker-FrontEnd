@@ -1,12 +1,15 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Header from './components/header-section/Header';
+import Header from "./components/header-section/Header";
 import Auth from "./components/authorization-section/Auth";
+import Login from "./components/authorization-section/Login";
+import Signup from "./components/authorization-section/Signup";
 import Navbar from "./components/Navbar";
-import StaffProfile from './components/staff-profile-section/StaffProfile';
 import AdvancedCalendar from './components/schedule-section/AdvancedCalendar/AdvancedCalendar'
+import StaffProfile from "./components/staff-profile-section/StaffProfile";
+
 import {
   Home,
   Note,
@@ -17,13 +20,27 @@ import {
 } from "./components/pages/routeIndex";
 
 function App() {
+  const [token, setToken] = useState("");
+
+  function updateToken(newToken) {
+    setToken(newToken);
+    localStorage.setItem("token", newToken);
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setToken(token);
+    }
+  }, []); 
+
   return (
     <main className="main">
-    <Header/>
+      <Header />
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/auth" element={<Auth />} />
+          <Route path="/auth" element={<Auth updateToken={updateToken}/>} />
           <Route path="/" element={<Home />} />
           <Route path="/schedule"  element={<AdvancedCalendar />} />
           <Route path="/note" element={<Note />} />
@@ -33,9 +50,13 @@ function App() {
           <Route path="/miscellaneous" element={<Miscellaneous />} />
           <Route path="/maintenance" element={<Maintenance />} />
         </Routes>
+        
+        {token 
+          ? <Auth updateToken={updateToken} /> 
+          : <Home token={token} />
+        }
       </Router>
     </main>
-
   );
 }
 

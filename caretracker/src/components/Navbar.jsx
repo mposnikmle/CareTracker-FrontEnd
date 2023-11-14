@@ -1,6 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function Navbar() {
+  const location = useLocation();
+  if (
+    location.pathname === "/auth" ||
+    location.pathname === "/login" ||
+    location.pathname === "/signup"
+  )
+    return null;
   return (
     <header
       className="navBar sm:px-16 px-8 py-4 max-w-5xl
@@ -21,7 +28,7 @@ function Navbar() {
           //   Destructured callback that changes from blue to
           //   black depending on activity status (doesnt work ATM)
           className={({ isActive }) =>
-            isActive ? "text-danger" : "text-success"
+            isActive ? "text-primary" : "text-secondary"
           }
         >
           Schedule
@@ -33,7 +40,7 @@ function Navbar() {
         <NavLink
           to="/note"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive ? "text-primary" : "text-secondary"
           }
         >
           Note
@@ -45,7 +52,7 @@ function Navbar() {
         <NavLink
           to="/medication"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive ? "text-primary" : "text-secondary"
           }
         >
           Medication
@@ -57,7 +64,7 @@ function Navbar() {
         <NavLink
           to="/openshifts"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive ? "text-primary" : "text-secondary"
           }
         >
           Open Shifts
@@ -69,7 +76,7 @@ function Navbar() {
         <NavLink
           to="/profile"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive ? "text-primary" : "text-secondary"
           }
         >
           Profile
@@ -80,7 +87,7 @@ function Navbar() {
         <NavLink
           to="/miscellaneous"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive ? "text-primary" : "text-secondary"
           }
         >
           Miscellaneous
@@ -91,11 +98,15 @@ function Navbar() {
         <NavLink
           to="/maintenance"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive ? "text-primary" : "text-secondary"
           }
         >
           Maintenance
         </NavLink>
+      </nav>
+      {/* TEMPORARY */}
+      <nav>
+        <NavLink to="/auth"></NavLink>
       </nav>
     </header>
   );
