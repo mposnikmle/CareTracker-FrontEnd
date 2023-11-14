@@ -3,6 +3,7 @@ import Signup from "./Signup";
 import React, { useState } from 'react';
 
 const Auth = (props) => {
+
     const [showLogin, setShowLogin] = useState(false);
 
     function handleToggle() {
@@ -15,9 +16,7 @@ const Auth = (props) => {
 
     return ( 
         <>
-            {/* <h1>Hello from Auth</h1>
-            <Login updateToken={props.updateToken} />
-            <Signup /> */}
+            
             {showLogin 
                 ? <Signup updateToken={props.updateToken} />
                 : <Login updateToken={props.updateToken} />
@@ -29,3 +28,4 @@ const Auth = (props) => {
 }
  
 export default Auth;
+

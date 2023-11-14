@@ -1,100 +1,99 @@
 /* src/components/StaffProfile.css */
 
 .profile {
-display: flex;
-background-color: #c6e7fd;
-border: 1px solid #ddd;
-border-radius: 8px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-margin: 20px auto;
-max-width: 100%;
-overflow: hidden;
-flex-wrap: wrap;
-
+  display: flex;
+  background-color: #c6e7fd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 100%;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin-left: 10rem;
 }
 
 .profile_header {
-background-color: #6fc1fc;
-color: #000000;
-padding: 50px;
-width: 100%;
-box-sizing: border-box;
+  background-color: #6fc1fc;
+  color: #000000;
+  padding: 50px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .profile_headercontainer {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .profile_userimgbox {
-border-radius: 50%;
-overflow: hidden;
-margin-right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
 }
 
 .profile_userimgbox img {
-width: 120px;
-height: 120px;
-object-fit: cover;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
 }
 
 .profile_headerdata {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile_headerdata h1,
 .profile_headerdata h2 {
-margin: 0;
-font-size: 2rem;
+  margin: 0;
+  font-size: 2rem;
 }
 
 .profile_headerdata h2 {
-margin-top: 10px;
-font-size: 1.5rem;
+  margin-top: 10px;
+  font-size: 1.5rem;
 }
 
 .profile_body {
-display: flex;
-flex-wrap: wrap;
-justify-content: flex-end; 
-padding: 20px;
-width: 100%; 
-box-sizing: border-box; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
-
 
 .profile_role,
 .profile_content,
 .certification,
 .profile_wages {
-background-color: #f1ffe3;
-border: 1px solid #ddd;
-border-radius: 8px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-margin: 10px;
-flex: 0 0 calc(50% - 20px);
-overflow: hidden;
-padding: 20px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  background-color: #f1ffe3;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  flex: 0 0 calc(50% - 20px);
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile_role h2,
 .profile_content h2,
 .certification h2,
 .profile_wages h2 {
-margin: 0;
-color: #777;
-font-size: 1.2rem;
+  margin: 0;
+  color: #777;
+  font-size: 1.2rem;
 }
 
 .profile_role h2,
 .profile_content h1,
 .certification h1,
 .profile_wages h1 {
-color: #333;
-font-size: 1.5rem;
+  color: #333;
+  font-size: 1.5rem;
 }

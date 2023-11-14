@@ -2,10 +2,12 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Header from './components/header-section/Header';
+import Header from "./components/header-section/Header";
 import Auth from "./components/authorization-section/Auth";
+import Login from "./components/authorization-section/Login";
+import Signup from "./components/authorization-section/Signup";
 import Navbar from "./components/Navbar";
-import StaffProfile from './components/staff-profile-section/StaffProfile';
+import StaffProfile from "./components/staff-profile-section/StaffProfile";
 import {
   Home,
   Schedule,
@@ -33,12 +35,11 @@ function App() {
 
   return (
     <main className="main">
-    <Header/>
+      <Header />
       <Router>
         <Navbar />
         <Routes>
           <Route path="/auth" element={<Auth updateToken={updateToken}/>} />
-          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/note" element={<Note />} />
           <Route path="/medication" element={<Medication />} />
@@ -54,7 +55,6 @@ function App() {
         }
       </Router>
     </main>
-
   );
 }
 

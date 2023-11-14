@@ -6,6 +6,7 @@ import Note from "./Note";
 import OpenShifts from "./OpenShifts";
 import Profile from "./Profile";
 import Schedule from "./Schedule";
+import Auth from "../authorization-section/Auth";
 
 export {
   Home,
@@ -15,5 +16,6 @@ export {
   Note,
   OpenShifts,
   Profile,
-  Schedule
+  Schedule,
+  Auth
 };

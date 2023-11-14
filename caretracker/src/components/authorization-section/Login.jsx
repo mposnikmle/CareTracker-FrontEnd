@@ -28,8 +28,6 @@ const Login = (props) => {
 
             const data = await response.json();
 
-            // props.updateToken(data.token);
-
             console.log(data);
             navigate("/");
         } catch (error) {
@@ -68,5 +66,4 @@ const Login = (props) => {
         </>
      );
 }
- 
 export default Login;
