@@ -28,9 +28,10 @@ const Login = (props) => {
 
             const data = await response.json();
 
-            props.updateToken(data.token);
+            // props.updateToken(data.token);
 
-            navigate("/staff");
+            console.log(data);
+            navigate("/");
         } catch (error) {
             console.error(error);
         }
@@ -38,6 +39,7 @@ const Login = (props) => {
 
     return ( 
         <>
+            <h2>LOGIN</h2>
             <Form>
                 <FormGroup>
                     <Label for="email">Email</Label>

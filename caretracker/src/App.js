@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from './components/header-section/Header';
@@ -12,20 +12,33 @@ import {
   Note,
   Medication,
   OpenShifts,
-  Profile,
   Miscellaneous,
   Maintenance
 } from "./components/pages/routeIndex";
 
 function App() {
+  const [token, setToken] = useState("");
+
+  function updateToken(newToken) {
+    setToken(newToken);
+    localStorage.setItem("token", newToken);
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setToken(token);
+    }
+  }, []); 
+
   return (
     <main className="main">
     <Header/>
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/auth" element={<Auth updateToken={updateToken}/>} />
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/note" element={<Note />} />
           <Route path="/medication" element={<Medication />} />
@@ -34,6 +47,11 @@ function App() {
           <Route path="/miscellaneous" element={<Miscellaneous />} />
           <Route path="/maintenance" element={<Maintenance />} />
         </Routes>
+        
+        {token 
+          ? <Auth updateToken={updateToken} /> 
+          : <Home token={token} />
+        }
       </Router>
     </main>
 
