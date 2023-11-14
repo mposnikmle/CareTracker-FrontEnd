@@ -67,7 +67,7 @@ function Navbar() {
       {/* Building out the Nav Bar Profile section */}
       <nav>
         <NavLink
-          to="/schedule"
+          to="/profile"
           className={({ isActive }) =>
             isActive ? "text-blue-500" : "text-black"
           }

@@ -6,13 +6,12 @@ import Header from './components/header-section/Header';
 import Auth from "./components/authorization-section/Auth";
 import Navbar from "./components/Navbar";
 import StaffProfile from './components/staff-profile-section/StaffProfile';
+import AdvancedCalendar from './components/schedule-section/AdvancedCalendar/AdvancedCalendar'
 import {
   Home,
-  Schedule,
   Note,
   Medication,
   OpenShifts,
-  Profile,
   Miscellaneous,
   Maintenance
 } from "./components/pages/routeIndex";
@@ -26,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route path="/" element={<Home />} />
-          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/schedule"  element={<AdvancedCalendar />} />
           <Route path="/note" element={<Note />} />
           <Route path="/medication" element={<Medication />} />
           <Route path="/openshifts" element={<OpenShifts />} />
