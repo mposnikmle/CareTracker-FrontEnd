@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import { API_STAFF_SIGNUP } from "../../constants/endpoints";
+import { useNavigate } from "react-router-dom";
 
 const Signup = (props) => {
     const [email, setEmail] = useState("");
@@ -8,6 +9,7 @@ const Signup = (props) => {
     const [role, setRole] = useState("");
     const [firstname, setFirstName] = useState("");
     const [lastname, setLastName] = useState("");
+    const navigate = useNavigate();
 
     async function handleSubmit() {
         try {
@@ -32,7 +34,9 @@ const Signup = (props) => {
 
             const data = await response.json();
 
-            props.updateToken(data.token);
+            // props.updateToken(data.token);
+            console.log(data);
+            navigate("/");
         } catch (error) {
             console.error(error);
         }
