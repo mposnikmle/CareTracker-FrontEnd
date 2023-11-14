@@ -25,6 +25,7 @@ body {
 
 .font-primary {
   font-family: Arial, Helvetica, sans-serif;
+}
 
 .navBar {
   background-color: transparent;
@@ -34,13 +35,14 @@ body {
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  position: fixed;
   padding: 2px 8px 4px;
   max-width: 5xl;
   margin-left: 2rem;
-  margin-top: 2rem;
+  /* adjusted my bar to header from 2rem */
+  margin-top: 7.5rem;
   margin-bottom: 2rem;
-  margin-right: auto;
+  /* margin-right: auto; */
   top: 0;
   left: 0;
   bottom: 0;
@@ -48,15 +50,19 @@ body {
 
 .logo {
   font-size: 2rem;
-  background: linear-gradient(to bottom, #6659a4, black);
+  background: linear-gradient(
+    to bottom,
+    #124ad7,
+    #124ad7,
+    black,
+    #4bb543,
+    black
+  );
   background-clip: text;
   color: transparent;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 800;
   box-shadow: 0 3px 6px 2px black;
-  /* box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px; */
-  /* box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, */
-  /* rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset; */
   text-align: center;
   border-radius: 1rem;
 }
@@ -65,9 +71,11 @@ body {
   text-align: center;
 }
 
-a {
+a,
+a:link,
+a:active {
   text-decoration: none;
-
+  font-weight: 800;
 }
 
 .bold {

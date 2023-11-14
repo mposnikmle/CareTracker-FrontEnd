@@ -1,70 +1,35 @@
-import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { API_STAFF_LOGIN } from "../../constants/endpoints";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
-const Login = (props) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const navigate = useNavigate();
+function Login(props) {
+  const [email, setEmail] = useState("Daniel@Dan.com");
+  const [password, setpassword] = useState("Password123");
 
-    async function handleSubmit() {
-        try {
-            let myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
+  function handleSubmit() {
+    console.log("Login Submitted");
 
-            const body = {
-                email: email,
-                password: password
-            }
+    setEmail("");
+    setpassword("");
+  }
 
-            const requestOption = {
-                method: "POST",
-                headers: myHeaders,
-                body: JSON.stringify(body)
-            }
-
-            const response = await fetch(API_STAFF_LOGIN, requestOption);
-
-            const data = await response.json();
-
-            props.updateToken(data.token);
-
-            navigate("/staff");
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    return ( 
-        <>
-            <Form>
-                <FormGroup>
-                    <Label for="email">Email</Label>
-                    <Input
-                        id="email"
-                        name="email"
-                        placeholder="Enter Email Addres"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="password">Password</Label>
-                    <Input
-                        id="password"
-                        name="password"
-                        placeholder="Enter Password"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </FormGroup>
-                <Button title="Login" onClick={handleSubmit}>Login</Button>
-            </Form>
-        </>
-     );
+  return (
+    <>
+      <label>Email</label>
+      <input
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <br />
+      <label>Password</label>
+      <input
+        type="text"
+        value={password}
+        onChange={(e) => setpassword(e.target.value)}
+      />
+      <br />
+      <button onClick={handleSubmit}>Submit</button>
+      <br />
+    </>
+  );
 }
- 
 export default Login;
