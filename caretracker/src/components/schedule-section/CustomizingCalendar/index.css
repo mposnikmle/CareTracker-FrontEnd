@@ -1,0 +1,31 @@
+/* Override default styles for react-big-calendar */
+.rbc-calendar {
+  /* Add your styling here */
+  border: 1px solid #ddd; /* Example: Add a border to the calendar */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example: Add a box shadow to the calendar */
+  margin: 20px 20px 20px auto;
+  height: 75vh;
+  width: 75%;
+}
+
+/* Add your custom styles */
+.rbc-header {
+  background: rgb(5, 5, 248);
+  color: white;
+  padding: 4px;
+  font-weight: bold;
+}
+
+.rbc-event {
+  padding: 0 !important;
+  font-size: 16px;
+}
+
+.rbc-event-label {
+  display: none !important;
+}
+
+.rbc-events-container {
+  /* background-color: blueviolet !important; */
+}
+

@@ -7,10 +7,11 @@ import Auth from "./components/authorization-section/Auth";
 import Login from "./components/authorization-section/Login";
 import Signup from "./components/authorization-section/Signup";
 import Navbar from "./components/Navbar";
+import AdvancedCalendar from './components/schedule-section/AdvancedCalendar/AdvancedCalendar'
 import StaffProfile from "./components/staff-profile-section/StaffProfile";
+
 import {
   Home,
-  Schedule,
   Note,
   Medication,
   OpenShifts,
@@ -40,7 +41,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/auth" element={<Auth updateToken={updateToken}/>} />
-          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/schedule"  element={<AdvancedCalendar />} />
           <Route path="/note" element={<Note />} />
           <Route path="/medication" element={<Medication />} />
           <Route path="/openshifts" element={<OpenShifts />} />
