@@ -29,6 +29,7 @@ const Login = (props) => {
             const data = await response.json();
 
             console.log(data);
+            props.updateToken(data.token);
             navigate("/");
         } catch (error) {
             console.error(error);

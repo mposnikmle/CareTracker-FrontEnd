@@ -38,7 +38,6 @@ const Signup = (props) => {
         } catch (error) {
             console.error(error);
         }
-    }
   }
 
   return (
