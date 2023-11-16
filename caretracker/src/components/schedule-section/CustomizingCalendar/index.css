@@ -3,9 +3,9 @@
   /* Add your styling here */
   border: 1px solid #ddd; /* Example: Add a border to the calendar */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example: Add a box shadow to the calendar */
-  margin: 20px 20px 20px auto;
+  margin: 20px 20px 20px 14rem;
   height: 75vh;
-  width: 75%;
+  width: 80%;
 }
 
 /* Add your custom styles */

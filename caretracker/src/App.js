@@ -20,6 +20,7 @@ import {
 } from "./components/pages/routeIndex";
 
 function App() {
+  
   const [token, setToken] = useState("");
 
   function updateToken(newToken) {
@@ -38,23 +39,22 @@ function App() {
     <main className="main">
       <Header />
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route path="/auth" element={<Auth updateToken={updateToken}/>} />
-          <Route path="/" element={<Home />} />
-          <Route path="/schedule"  element={<AdvancedCalendar />} />
-          <Route path="/note" element={<Note />} />
-          <Route path="/medication" element={<Medication />} />
-          <Route path="/openshifts" element={<OpenShifts />} />
-          <Route path="/profile" element={<StaffProfile />} />
-          <Route path="/miscellaneous" element={<Miscellaneous />} />
-          <Route path="/maintenance" element={<Maintenance />} />
+          <Route path="/" element={<Home token={token}/>} />
+          <Route path="/schedule"  element={<AdvancedCalendar token={token}  />} />
+          <Route path="/note" element={<Note token={token} />} />
+          <Route path="/medication" element={<Medication token={token} />} />
+          <Route path="/openshifts" element={<OpenShifts token={token} />} />
+          <Route path="/profile" element={<StaffProfile token={token} />} />
+          <Route path="/miscellaneous" element={<Miscellaneous token={token}/>} />
+          <Route path="/maintenance" element={<Maintenance token={token}/>} />
         </Routes>
         
-        {token 
-          ? <Auth updateToken={updateToken} /> 
-          : <Home token={token} />
-        }
+        {token ? <Home token={token} /> : <Auth updateToken={updateToken} />}
+
+
       </Router>
     </main>
   );

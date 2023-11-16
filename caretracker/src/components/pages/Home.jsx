@@ -1,8 +1,12 @@
 function Home(props) {
+  const { token } = props;
+  console.log(token)
+
+
   return (
     <>
       <section>
-        <h1 className="greeting">Welcome to Care Tracker</h1>
+        {/* <h1>Welcome to Care Tracker</h1> */}
       </section>
     </>
   );

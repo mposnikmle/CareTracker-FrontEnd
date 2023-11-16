@@ -29,7 +29,7 @@ function StaffProfile(props) {
 
                     </div>
                     <div class="profile_content">
-                        <h1>PTO: </h1>
+                        <h1>PTO Balance: </h1>
                         <h2>99.99</h2>
                     </div>
                     <div class="certification">
