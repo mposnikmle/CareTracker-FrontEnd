@@ -28,11 +28,13 @@ const Login = (props) => {
 
       const data = await response.json();
 
-      props.updateToken(data.token); //added from max
-      console.log(data);
-      navigate("/");
-    } catch (error) {
-      console.error(error);
+            console.log(data);
+            props.updateToken(data.token);
+            navigate("/");
+        } catch (error) {
+            console.error(error);
+        }
+    
     }
   }
 

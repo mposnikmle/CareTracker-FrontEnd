@@ -33,11 +33,12 @@ const Signup = (props) => {
       const response = await fetch(API_STAFF_SIGNUP, requestOption);
 
       const data = await response.json();
-      console.log(data);
-      navigate("/");
-    } catch (error) {
-      console.error(error);
-    }
+
+            console.log(data);
+            navigate("/");
+        } catch (error) {
+            console.error(error);
+        }
   }
 
   return (

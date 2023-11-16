@@ -4,8 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/header-section/Header";
 import Auth from "./components/authorization-section/Auth";
-import Login from "./components/authorization-section/Login";
-import Signup from "./components/authorization-section/Signup";
+// import Login from "./components/authorization-section/Login";
+// import Signup from "./components/authorization-section/Signup";
 import Navbar from "./components/Navbar";
 // import AdvancedCalendar from "./components/schedule-section/AdvancedCalendar/AdvancedCalendar";
 // import StaffProfile from "./components/staff-profile-section/StaffProfile";
@@ -42,9 +42,9 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/auth" element={<Auth updateToken={updateToken} />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/schedule" element={<AdvancedCalendar />} />
+          <Route path="/auth" element={<Auth updateToken={updateToken}/>} />
+          <Route path="/" element={<Home token={updateToken}/>} />
+          <Route path="/schedule"  element={<AdvancedCalendar />} />
           <Route path="/note" element={<Note />} />
           <Route path="/medication" element={<Medication />} />
           <Route path="/openshifts" element={<OpenShifts />} />
@@ -52,8 +52,12 @@ function App() {
           <Route path="/miscellaneous" element={<Miscellaneous />} />
           <Route path="/maintenance" element={<Maintenance />} />
         </Routes>
+        
+        {token 
+          ? <Home token={token} />
+          : <Auth updateToken={updateToken} />
+        }
 
-        {token ? <Auth updateToken={updateToken} /> : <Home token={token} />}
       </Router>
     </main>
   );
