@@ -1,49 +1,83 @@
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Calendar from "../Calendar";
+import { API_SCHEDULE_VIEW_ALL_SHIFTS } from "../../../constants/endpoints";
+import AddShift from "../Shifts/AddShift";
 
-const events = [
-    {
-        start: moment("2023-03-18T10:00:00").toDate(),
-        end: moment("2023-03-18T11:00:00").toDate(),
-        title: "MRI Registration",
-        data: {
-            type: "Reg",
-        },
-    },
-    {
-        start: moment("2023-03-18T14:00:00").toDate(),
-        end: moment("2023-03-18T15:30:00").toDate(),
-        title: "ENT Appointment",
-        data: {
-            type: "App",
-        },
-    },
-];
+const ControlCalendar = ({ token }) => {
+  const [fetchedShifts, setFetchedShifts] = useState([]);
 
-const components = {
-    event: (props) => {
-        const eventType = props?.event?.data?.type;
-        switch (eventType) {
-            case "Reg":
-                return (
-                    <div style={{ background: "yellow", color: "white", height: "100%" }}>
-                        {props.title}
-                    </div>
-                );
-            case "App":
-                return (
-                    <div
-                        style={{ background: "lightgreen", color: "white", height: "100%" }}
-                    >
-                        {props.title}
-                    </div>
-                );
-            default:
-                return null;
+  useEffect(() => {
+    const fetchShifts = async () => {
+      try {
+        const response = await fetch(API_SCHEDULE_VIEW_ALL_SHIFTS, {
+          headers: {
+            Authorization: `${token}`,
+          },
+        });
+
+        const data = await response.json();
+
+        if (data.shifts) {
+          const formattedShifts = data.shifts.map((shift) => ({
+            id: shift._id,
+            start: moment(shift.shiftStart).toDate(),
+            end: moment(shift.shiftEnd).toDate(),
+            title: shift.staff,
+            staff: shift.staff,
+            date: moment(shift.shiftStart).format("YYYY-MM-DD"),
+            address: shift.address,
+            color: shift.eventColor || "#4CAF50",
+          }));
+
+          console.log("Formatted Shifts:", formattedShifts);
+
+          setFetchedShifts(formattedShifts);
         }
-    },
+      } catch (error) {
+        console.error("Error fetching shifts:", error);
+      }
+    };
+
+    fetchShifts();
+  }, [token]);
+
+  // Define eventStyleGetter function
+  const eventStyleGetter = (event, start, end, isSelected) => {
+    const backgroundColor = event.color;
+    const style = {
+      backgroundColor: backgroundColor,
+      borderRadius: '0px',
+      opacity: 0.8,
+      color: 'black',
+      border: '0px',
+      display: 'block'
+    };
+    return {
+      style: style
+    };
+  };
+
+  const EventComponent = ({ event }) => (
+    <div>
+      <strong>{event.title}</strong>
+      <p>Address: {event.address}</p>
+      {/* Add more information as needed */}
+    </div>
+  );
+
+  return (
+    <div>
+      <Calendar
+        events={fetchedShifts}
+        components={{
+          event: EventComponent,
+        }}
+        eventPropGetter={eventStyleGetter} // Assign the eventStyleGetter function
+      />
+      <AddShift token={token} />
+    </div>
+  );
 };
 
-export default function ControlCalendar() {
-    return <Calendar events={events} components={components} />;
-}
+export default ControlCalendar;

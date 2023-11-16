@@ -1,0 +1,13 @@
+/* AddShiftForm.css */
+.add-shift-form {
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 250px; /* Adjust the width */
+    height: 275px; /* Adjust the height */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px; /* Adjust the font size */
+}

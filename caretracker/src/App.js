@@ -42,9 +42,12 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/auth" element={<Auth updateToken={updateToken}/>} />
-          <Route path="/" element={<Home token={updateToken}/>} />
-          <Route path="/schedule"  element={<AdvancedCalendar />} />
+          <Route path="/auth" element={<Auth updateToken={updateToken} />} />
+          <Route
+            path="/"
+            element={token ? <Home token={token} /> : <Auth updateToken={updateToken} />}
+          />
+          <Route path="/schedule" element={<AdvancedCalendar token={token} />} />
           <Route path="/note" element={<Note />} />
           <Route path="/medication" element={<Medication />} />
           <Route path="/openshifts" element={<OpenShifts />} />
@@ -52,12 +55,6 @@ function App() {
           <Route path="/miscellaneous" element={<Miscellaneous />} />
           <Route path="/maintenance" element={<Maintenance />} />
         </Routes>
-        
-        {token 
-          ? <Home token={token} />
-          : <Auth updateToken={updateToken} />
-        }
-
       </Router>
     </main>
   );
