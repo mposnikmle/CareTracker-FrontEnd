@@ -36,11 +36,12 @@ const Signup = (props) => {
 
       const data = await response.json();
 
-            console.log(data);
-            navigate("/");
-        } catch (error) {
-            console.error(error);
-        }
+      console.log(data);
+      props.updateToken(data.token);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
