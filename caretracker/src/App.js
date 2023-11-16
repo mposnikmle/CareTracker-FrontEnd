@@ -53,7 +53,9 @@ function App() {
           <Route path="/maintenance" element={<Maintenance />} />
         </Routes>
 
+
         {token ? <Home token={token} /> : <Auth updateToken={updateToken} />}
+
       </Router>
     </main>
   );
