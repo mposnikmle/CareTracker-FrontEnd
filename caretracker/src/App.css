@@ -37,8 +37,9 @@ body {
   align-items: center;
   position: fixed;
   padding: 2px 8px 4px;
-  max-width: 5xl;
+  max-width: 5x1;
   margin-left: 2rem;
+
   /* adjusted my bar to header from 2rem */
   margin-top: 7.5rem;
   margin-bottom: 2rem;
@@ -81,4 +82,3 @@ a:active {
 .bold {
   font-weight: bold;
 }
-

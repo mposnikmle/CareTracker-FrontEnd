@@ -1,7 +1,7 @@
 function Medication(props) {
   return (
     <>
-      <h1 className="greeting">Hello from Medication</h1>
+      <h1 className="greeting">Welcome to CareTracker</h1>
     </>
   );
 }
