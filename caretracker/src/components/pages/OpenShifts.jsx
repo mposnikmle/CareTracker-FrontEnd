@@ -1,7 +1,7 @@
 function OpenShifts(props) {
   return (
     <>
-      <h1 className="greeting">Hello from OpenShifts</h1>
+      <h1 className="greeting">Welcome to CareTracker</h1>
     </>
   );
 }

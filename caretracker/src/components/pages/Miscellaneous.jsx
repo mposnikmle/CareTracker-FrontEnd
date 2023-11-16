@@ -1,7 +1,7 @@
 function Miscellaneous(props) {
   return (
     <>
-      <h1 className="greeting">Hello from Miscellaneous</h1>
+      <h1 className="greeting">Welcome to CareTracker</h1>
     </>
   );
 }

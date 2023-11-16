@@ -1,21 +1,23 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/header-section/Header";
 import Auth from "./components/authorization-section/Auth";
 // import Login from "./components/authorization-section/Login";
 // import Signup from "./components/authorization-section/Signup";
 import Navbar from "./components/Navbar";
-import AdvancedCalendar from './components/schedule-section/AdvancedCalendar/AdvancedCalendar'
-import StaffProfile from "./components/staff-profile-section/StaffProfile";
+// import AdvancedCalendar from "./components/schedule-section/AdvancedCalendar/AdvancedCalendar";
+// import StaffProfile from "./components/staff-profile-section/StaffProfile";
 
 import {
   Home,
+  AdvancedCalendar,
   Note,
   Medication,
   OpenShifts,
   Miscellaneous,
+  StaffProfile,
   Maintenance
 } from "./components/pages/routeIndex";
 
@@ -32,7 +34,7 @@ function App() {
     if (token) {
       setToken(token);
     }
-  }, []); 
+  }, []);
 
   return (
     <main className="main">
@@ -55,6 +57,7 @@ function App() {
           ? <Home token={token} />
           : <Auth updateToken={updateToken} />
         }
+
       </Router>
     </main>
   );

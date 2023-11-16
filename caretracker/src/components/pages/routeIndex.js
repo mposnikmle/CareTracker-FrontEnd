@@ -4,8 +4,8 @@ import Medication from "./Medication";
 import Miscellaneous from "./Miscellaneous";
 import Note from "./Note";
 import OpenShifts from "./OpenShifts";
-import Profile from "./Profile";
-import Schedule from "./Schedule";
+import StaffProfile from "../staff-profile-section/StaffProfile";
+import AdvancedCalendar from "../../components/schedule-section/AdvancedCalendar/AdvancedCalendar";
 import Auth from "../authorization-section/Auth";
 
 export {
@@ -15,7 +15,7 @@ export {
   Miscellaneous,
   Note,
   OpenShifts,
-  Profile,
-  Schedule,
+  StaffProfile,
+  AdvancedCalendar,
   Auth
 };

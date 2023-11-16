@@ -4,12 +4,12 @@ import { API_STAFF_SIGNUP } from "../../constants/endpoints";
 import { useNavigate } from "react-router-dom";
 
 const Signup = (props) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [role, setRole] = useState("");
-    const [firstname, setFirstName] = useState("");
-    const [lastname, setLastName] = useState("");
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit() {
     try {
@@ -33,6 +33,7 @@ const Signup = (props) => {
       const response = await fetch(API_STAFF_SIGNUP, requestOption);
 
       const data = await response.json();
+
             console.log(data);
             navigate("/");
         } catch (error) {
