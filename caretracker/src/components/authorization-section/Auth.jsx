@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 const Auth = (props) => {
 
-    const [showLogin, setShowLogin] = useState(false);
+    const [showLogin, setShowLogin] = useState();
 
     function handleToggle() {
         if (showLogin === false) {
@@ -18,8 +18,8 @@ const Auth = (props) => {
         <>
             
             {showLogin 
-                ? <Signup updateToken={props.updateToken} />
-                : <Login updateToken={props.updateToken} />
+                ? <Login updateToken={props.updateToken} />
+                : <Signup updateToken={props.updateToken} />
             }
 
             <button onClick={handleToggle}>Toggle Login/Register</button>
