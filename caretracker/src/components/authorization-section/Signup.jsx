@@ -4,11 +4,12 @@ import { API_STAFF_SIGNUP } from "../../constants/endpoints";
 import { useNavigate } from "react-router-dom";
 
 const Signup = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [company, setCompany] = useState();
   const [role, setRole] = useState("");
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   async function handleSubmit() {
@@ -17,6 +18,7 @@ const Signup = (props) => {
       myHeaders.append("Content-Type", "application/json");
 
       const body = {
+        company: company,
         role: role,
         firstname: firstname,
         lastname: lastname,
@@ -34,24 +36,34 @@ const Signup = (props) => {
 
       const data = await response.json();
 
-            console.log(data);
-            props.updateToken(data.token)
-            navigate("/");
-        } catch (error) {
-            console.error(error);
-        }
+
+      console.log(data);
+      props.updateToken(data.token);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+
   }
 
   return (
     <>
       <Form>
         <FormGroup>
+          <Label for="company">Company</Label>
+          <select id="company" name="company" /*value={company}*/ onChange={(e) => setCompany(e.target.value)}>
+            <option value="">--Please choose an option--</option>
+            <option value="comp1">company 1</option>
+            <option value="comp2">company 2</option>
+            <option value="comp3">company 3</option>
+          </select>
+        </FormGroup>
+        <FormGroup>
           <Label for="role">Role</Label>
           <Input
             id="role"
             name="role"
-            placeholder="Enter Staff Role"
-            type="role"
+            type="text"
             value={role}
             onChange={(e) => setRole(e.target.value)}
           />
@@ -62,7 +74,7 @@ const Signup = (props) => {
             id="firstname"
             name="firstname"
             placeholder="Enter First Name"
-            type="firstname"
+            type="text"
             value={firstname}
             onChange={(e) => setFirstName(e.target.value)}
           />
@@ -73,7 +85,7 @@ const Signup = (props) => {
             id="lastname"
             name="lastname"
             placeholder="Enter Last Name"
-            type="lastname"
+            type="text"
             value={lastname}
             onChange={(e) => setLastName(e.target.value)}
           />
