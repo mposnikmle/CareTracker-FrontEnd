@@ -34,6 +34,7 @@ const Login = (props) => {
     } catch (error) {
       console.error(error);
     }
+
   }
 
   return (
