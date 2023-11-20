@@ -48,6 +48,7 @@ const Signup = (props) => {
 
   return (
     <>
+    <h2>REGISTER</h2>
       <Form>
         <FormGroup>
           <Label for="company">Company</Label>
@@ -60,6 +61,17 @@ const Signup = (props) => {
         </FormGroup>
         <FormGroup>
           <Label for="role">Role</Label>
+          <select id="role" name="role" /*value={company}*/ onChange={(e) => setRole(e.target.value)}>
+            <option value="">--Please choose an option--</option>
+            <option value="dsp">Direct Service Professional</option>
+            <option value="house-manager">House Manager</option>
+            <option value="program-manager">Program Manager</option>
+            <option value="training-hr">Training Department/HR</option>
+            <option value="ceo">CEO</option>
+          </select>
+        </FormGroup>
+        {/* <FormGroup>
+          <Label for="role">Role</Label>
           <Input
             id="role"
             name="role"
@@ -67,7 +79,7 @@ const Signup = (props) => {
             value={role}
             onChange={(e) => setRole(e.target.value)}
           />
-        </FormGroup>
+        </FormGroup> */}
         <FormGroup>
           <Label for="firstname">First Name</Label>
           <Input

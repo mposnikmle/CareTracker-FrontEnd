@@ -4,27 +4,31 @@ export const users = [
     lastName: "Weasley",
     email: "BostonRedHead@gmail.com",
     company: "ISolemnlySwear",
-    phone: "1-999-999-9999",
+    role: "DSP",
+    password: "RonStinks"
   },
   {
-    firstName: "Ginny2",
-    lastName: "Weasley",
-    email: "BostonRedHead2@gmail.com",
-    company: "ISolemnlySwear2",
-    phone: "1-299-999-9999",
+    firstName: "Professer",
+    lastName: "Snape",
+    email: "DarkArtsMaster@hogwarts.edu",
+    company: "Potions",
+    role: "House Manager",
+    password: "LilyLover"
   },
   {
-    firstName: "Ginny3",
-    lastName: "Weasley",
-    email: "BostonRedHead3@gmail.com",
-    company: "ISolemnlySwear3",
-    phone: "1-239-999-9999",
+    firstName: "Albus",
+    lastName: "Dumbledoor",
+    email: "ald@magic.com",
+    company: "School Master",
+    role: "CEO",
+    password: "Memoir"
   },
   {
-    firstName: "Ginny4",
-    lastName: "Weasley",
-    email: "BostonRedHead4@gmail.com",
-    company: "ISolemnlySwear4",
-    phone: "1-234-999-9999",
-  },
+    firstName: "Hermonie",
+    lastName: "Granger",
+    email: "SmarterThanPotter@hogwarts.com",
+    company: "Mybiz",
+    role: "Program Manager",
+    password: "Library"
+  }
 ];
