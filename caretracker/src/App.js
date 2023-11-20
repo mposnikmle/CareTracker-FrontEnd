@@ -44,7 +44,7 @@ function App() {
         <Routes>
           <Route path="/auth" element={<Auth updateToken={updateToken} />} />
           <Route path="/" element={<Home token={updateToken} />} />
-          <Route path="/schedule" element={<AdvancedCalendar />} />
+          <Route path="/schedule" element={<AdvancedCalendar token={token}/>} />
           <Route path="/note" element={<Note />} />
           <Route path="/medication" element={<Medication />} />
           <Route path="/openshifts" element={<OpenShifts />} />

@@ -7,3 +7,5 @@ export const API_STAFF_UPDATE = "http://localhost:4000/staff/update";
 
 export const API_SCHEDULE_VIEW_ALL_SHIFTS = "http://localhost:4000/schedule/viewScheduledShifts";
 export const API_SCHEDULE_ADD_SHIFT = "http://localhost:4000/schedule/addShift"
+export const API_SCHEDULE_DELETE_SHIFT_BY_ID = "http://localhost:4000/schedule/deleteShift"
+export const API_SCHEDULE_UPDATE_SHIFT_BY_ID = "http://localhost:4000/schedule/updateShift"
