@@ -7,6 +7,7 @@ import OpenShifts from "./OpenShifts";
 import StaffProfile from "../staff-profile-section/StaffProfile";
 import AdvancedCalendar from "../../components/schedule-section/AdvancedCalendar/AdvancedCalendar";
 import Auth from "../authorization-section/Auth";
+import IncorrectPage from "./IncorrectPage";
 
 export {
   Home,
@@ -17,5 +18,6 @@ export {
   OpenShifts,
   StaffProfile,
   AdvancedCalendar,
-  Auth
+  Auth,
+  IncorrectPage
 };
