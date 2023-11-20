@@ -4,6 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/header-section/Header";
 import Auth from "./components/authorization-section/Auth";
+
+// import Login from "./components/authorization-section/Login";
+import Signup from "./components/authorization-section/Signup";
+
+
 import Navbar from "./components/Navbar";
 
 import {
@@ -51,6 +56,7 @@ function App() {
                       path="/auth"
                       element={<Auth updateToken={updateToken} />}
                     />
+                    <Route path="/signup" element={<Signup updateToken={updateToken} />} />
                     <Route
                       path="/"
                       element={
