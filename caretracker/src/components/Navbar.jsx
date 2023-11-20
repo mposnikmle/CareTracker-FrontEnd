@@ -9,16 +9,11 @@ function Navbar() {
   )
     return null;
   return (
-    <header
-      className="navBar sm:px-16 px-8 py-4 max-w-5xl
-    mx-auto"
-    >
+    <header className="navBar">
       {/* Trying to style a home button that looks as though it floats
         the initials CT represent Care Tracker */}
       <NavLink to="/">
-        <p className="logo">
-          Care <br></br>Tracker
-        </p>
+        <p className="logo">CareTracker</p>
       </NavLink>
 
       {/* Building out the Nav Bar "About" Section */}
