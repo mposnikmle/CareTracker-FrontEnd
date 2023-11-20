@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Calendar from "../Calendar";
-import { API_SCHEDULE_VIEW_ALL_SHIFTS } from "../../../constants/endpoints";
+import { API_SCHEDULE_DELETE_SHIFT_BY_ID, API_SCHEDULE_VIEW_ALL_SHIFTS } from "../../../constants/endpoints";
 import AddShift from "../Shifts/AddShift";
+import EditShift from "../Shifts/EditShift";
+
+/* 
+  ! ControlCalendar
+  * Fetching shifts from the API
+  * Using proper ReactBigCalendar Formatting
+  * Deleting Shifts from the API
+*/
 
 const ControlCalendar = ({ token }) => {
   const [fetchedShifts, setFetchedShifts] = useState([]);
+  const [selectedShift, setSelectedShift] = useState(null);
 
   useEffect(() => {
     const fetchShifts = async () => {
@@ -34,6 +43,7 @@ const ControlCalendar = ({ token }) => {
 
           setFetchedShifts(formattedShifts);
         }
+
       } catch (error) {
         console.error("Error fetching shifts:", error);
       }
@@ -58,11 +68,40 @@ const ControlCalendar = ({ token }) => {
     };
   };
 
+  // Deleting shift in the API
+  const handleDelete = async (shiftId) => {
+    try {
+      const response = await fetch(`${API_SCHEDULE_DELETE_SHIFT_BY_ID}/${shiftId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `${token}`,
+        },
+      });
+
+      if (response.ok) {
+        setFetchedShifts((prevShifts) => prevShifts.filter((shift) => shift.id !== shiftId));
+      } else {
+        console.error('Failed to delete shift. Status:', response.status);
+      }
+    } catch (error) {
+      console.error('Error deleting shift:', error);
+    }
+  };
+
+  const handleEdit = (shift) => {
+    setSelectedShift(shift);
+  };
+
+
+  // How the Shift are displayed on the Calendar
   const EventComponent = ({ event }) => (
-    <div>
+    <div style={{ position: 'relative' }}>
       <strong>{event.title}</strong>
       <p>Address: {event.address}</p>
-      {/* Add more information as needed */}
+      <div style={{ position: 'absolute', top: 0, right: 0 }}>
+        <button onClick={() => handleEdit(event)}>Edit</button>
+        <button onClick={() => handleDelete(event.id)}>X</button>
+      </div>
     </div>
   );
 
@@ -71,11 +110,21 @@ const ControlCalendar = ({ token }) => {
       <Calendar
         events={fetchedShifts}
         components={{
-          event: EventComponent,
+          event: (props) => <EventComponent {...props} />,
         }}
-        eventPropGetter={eventStyleGetter} // Assign the eventStyleGetter function
+        eventPropGetter={eventStyleGetter}
       />
-      <AddShift token={token} />
+  
+      <AddShift
+        token={token}
+      />
+
+    <EditShift
+      token={token}
+      // Pass handleUpdate as a prop
+      shiftToUpdate={selectedShift}
+    />
+
     </div>
   );
 };
