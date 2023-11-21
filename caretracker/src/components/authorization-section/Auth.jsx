@@ -7,10 +7,6 @@ import { useNavigate } from "react-router-dom";
 const Auth = (props) => {
     const navigate = useNavigate();
 
-    function handleRegister() {
-        navigate("/signup");
-    }
-
     // const [showLogin, setShowLogin] = useState();
 
     // function handleToggle() {
@@ -20,6 +16,10 @@ const Auth = (props) => {
     //         setShowLogin(false);
     //     }
     // }
+
+    async function handleRegister() {
+        navigate("/signup");
+    }
 
     return ( 
         <>
