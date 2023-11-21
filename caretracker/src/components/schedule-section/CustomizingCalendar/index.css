@@ -3,9 +3,10 @@
   /* Add your styling here */
   border: 1px solid #ddd; /* Example: Add a border to the calendar */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example: Add a box shadow to the calendar */
-  margin: 20px 20px 20px 14rem;
+  margin: 20px 20px 20px 10rem;
   height: 75vh;
-  width: 80%;
+  max-width: 100%;
+  width: 100vw;
 }
 
 /* Add your custom styles */

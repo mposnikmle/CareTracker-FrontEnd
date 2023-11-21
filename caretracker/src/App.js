@@ -8,7 +8,6 @@ import Auth from "./components/authorization-section/Auth";
 // import Login from "./components/authorization-section/Login";
 import Signup from "./components/authorization-section/Signup";
 
-
 import Navbar from "./components/Navbar";
 
 import {
@@ -26,6 +25,7 @@ import UserProps from "./components/UserProps";
 
 function App() {
   const [token, setToken] = useState("");
+  // const [role, setRole] = useState("DSP");
 
   function updateToken(newToken) {
     if (newToken) {
@@ -41,6 +41,14 @@ function App() {
     }
   }, []);
 
+  // if (role === "DSP") {
+  //   return <h1>I'm an DSP</h1>;
+  // }
+
+  // if (role == "admin") {
+  //   return <h1>I'm an admin</h1>;
+  // }
+
   return (
     <div>
       <Header />;
@@ -50,42 +58,63 @@ function App() {
             {({ user, updateUser }) => (
               <>
                 <Router>
-                  <Navbar />
-                  <Routes>
-                    <Route
-                      path="/auth"
-                      element={<Auth updateToken={updateToken} />}
-                    />
-                    <Route path="/signup" element={<Signup updateToken={updateToken} />} />
-                    <Route
-                      path="/"
-                      element={
-                        <Home
-                          user={user}
-                          updateUser={updateUser}
-                          token={updateToken}
+                  {token ? (
+                    <div>
+                      <Navbar />
+                      <Routes>
+                        <Route
+                          path="/auth"
+                          element={<Auth updateToken={updateToken} />}
                         />
-                      }
-                    />
-                    <Route
-                      path="/schedule"
-                      element={<AdvancedCalendar token={token} />}
-                    />
-                    <Route path="/note" element={<Note />} />
-                    <Route path="/medication" element={<Medication />} />
-                    <Route path="/openshifts" element={<OpenShifts />} />
-                    <Route path="/profile" element={<StaffProfile />} />
-                    <Route path="/miscellaneous" element={<Miscellaneous />} />
-                    <Route path="/maintenance" element={<Maintenance />} />
-                    <Route path="*" element={<IncorrectPage />} />
-                  </Routes>
+                        <Route
+                          path="/signup"
+                          element={<Signup updateToken={updateToken} />}
+                        />
+                        <Route
+                          path="/"
+                          element={
+                            <Home
+                              user={user}
+                              updateUser={updateUser}
+                              token={updateToken}
+                            />
+                          }
+                        />
+                        <Route
+                          path="/schedule"
+                          element={<AdvancedCalendar token={token} />}
+                        />
+                        <Route path="/note" element={<Note />} />
+                        <Route path="/medication" element={<Medication />} />
+                        <Route path="/openshifts" element={<OpenShifts />} />
+                        <Route path="/profile" element={<StaffProfile />} />
+                        <Route
+                          path="/miscellaneous"
+                          element={<Miscellaneous />}
+                        />
+                        <Route path="/maintenance" element={<Maintenance />} />
+                        <Route path="*" element={<IncorrectPage />} />
+                      </Routes>
+                    </div>
+                  ) : (
+                    <Routes>
+                      <Route
+                        path="*"
+                        element={<Auth updateToken={updateToken} />}
+                      />
+                      <Route
+                        path="/signup"
+                        element={<Signup updateToken={updateToken} />}
+                      />
+                    </Routes>
+                  )}
                 </Router>
                 {/* THIS IS COMMENTED OUT BECAUSE IT IS CREATING DUPLICATES. WE NEED A SOLUTION */}
                 {/* {token ? (
-              <Home token={token} user={user} updateUser={updateUser} />
-            ) : (
-              <Auth updateToken={updateToken} />
-            )} */}
+                  <Home token={token} user={user} updateUser={updateUser} />
+                  ) : (
+                    <Auth updateToken={updateToken} />
+                  )} */}
               </>
             )}
           </UserProps>
