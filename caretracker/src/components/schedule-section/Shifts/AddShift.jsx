@@ -1,11 +1,11 @@
 // AddShiftForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddShift.css';
-import { API_SCHEDULE_ADD_SHIFT } from '../../../constants/endpoints';
+import { API_SCHEDULE_ADD_SHIFT, API_SCHEDULE_UPDATE_SHIFT_BY_ID } from '../../../constants/endpoints';
 
 const AddShift = (props) => {
   // State to manage form input values
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     staff: '',
     date: '',
     address: '',
@@ -13,7 +13,24 @@ const AddShift = (props) => {
     endTime: '',
     isAwake: true,
     eventColor: '#4CAF50', // Default color
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+
+  useEffect(() => {
+    if (props.shiftToUpdate) {
+      // If in edit mode, prepopulate the form with existing shift data
+      setFormData({
+        staff: props.shiftToUpdate.staff,
+        date: props.shiftToUpdate.date,
+        address: props.shiftToUpdate.address,
+        startTime: props.shiftToUpdate.startTime,
+        endTime: props.shiftToUpdate.endTime,
+        isAwake: props.shiftToUpdate.isAwake,
+        eventColor: props.shiftToUpdate.eventColor || '#4CAF50', // Default color
+      });
+    }
+  }, [props.shiftToUpdate]);
 
   // Function to handle input changes
   const handleInputChange = (e) => {
@@ -51,30 +68,64 @@ const AddShift = (props) => {
         eventColor: formData.eventColor, // Include the eventColor in the body
         // Add other form fields as needed
       };
+      if (props.shiftToUpdate) {
+        // If in edit mode, update the shift
+        const response = await fetch(`${API_SCHEDULE_UPDATE_SHIFT_BY_ID}/${props.shiftToUpdate.id}`, {
+          method: 'PATCH',  // Change the method to PATCH
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: props.token,
+          },
+          body: JSON.stringify(body),
+        });
 
-      // Request Options
-      const requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: JSON.stringify(body),
-      };
+        if (response.ok) {
+          // Clear the selected shift and notify the parent component about the update
+          setFormData({ /* ... reset form fields as needed */ });
+          props.onUpdate();
+        } else {
+          console.error('Failed to update shift. Status:', response.status);
+        }
+      } else {
+        // If not in edit mode, add a new shift
+        const response = await fetch(API_SCHEDULE_ADD_SHIFT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: props.token,
+          },
+          body: JSON.stringify(body),
+        });
 
-      // Send Request
-      const response = await fetch(API_SCHEDULE_ADD_SHIFT, requestOptions);
-      // Get A Response
-      const data = await response.json();
-
-      // Refresh the Calendar or perform any necessary updates
+        if (response.ok) {
+          // Clear the form after adding
+          setFormData({ /* ... reset form fields as needed */ });
+          // Refresh the page after handling the submit
+          window.location.reload();
+        } else {
+          console.error('Failed to add shift. Status:', response.status);
+        }
+      }
+      // Refresh the page after handling the submit
       window.location.reload();
-      // Example: props.fetchCalendarData();
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
   };
 
+  const handleCancel = () => {
+    // Clear the form fields
+    setFormData(initialFormData);
+
+    // Call the onCancel prop if it's a function
+    if (typeof props.onCancel === 'function') {
+      props.onCancel();
+    }
+  };
+
+
   return (
-    <form className="add-shift-form" onSubmit={handleAddShift}>
+    <form className={`add-shift-form ${props.shiftToUpdate ? 'edit-mode' : ''}`} onSubmit={handleAddShift}>
       {/* Input fields for adding shift details */}
       <div>
         <label>Staff:</label>
@@ -105,7 +156,15 @@ const AddShift = (props) => {
         <input type="color" name="eventColor" value={formData.eventColor} onChange={handleInputChange} />
       </div>
       {/* Add other form fields as needed */}
-      <button type="submit">Add Shift</button>
+      <button type="submit" style={{ marginTop: '2.5vh', backgroundColor: 'Lime', border: 'none' }}>
+        {props.shiftToUpdate ? 'Update Shift' : <i className="fa-solid fa-calendar-plus" style={{ color: 'white' }}></i>}
+      </button>
+      {props.shiftToUpdate && (
+        <button type="button" onClick={handleCancel} style={{ marginLeft: '5px', backgroundColor: 'red', border: 'none', color: 'white' }}>
+          Cancel
+        </button>
+      )}
+
     </form>
   );
 };

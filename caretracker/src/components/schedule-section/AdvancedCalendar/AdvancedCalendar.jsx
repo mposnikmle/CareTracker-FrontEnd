@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Calendar from "../Calendar";
-import { API_SCHEDULE_DELETE_SHIFT_BY_ID, API_SCHEDULE_VIEW_ALL_SHIFTS } from "../../../constants/endpoints";
+import { API_SCHEDULE_DELETE_SHIFT_BY_ID, API_SCHEDULE_VIEW_ALL_SHIFTS, API_SCHEDULE_UPDATE_SHIFT_BY_ID } from "../../../constants/endpoints";
 import AddShift from "../Shifts/AddShift";
-import EditShift from "../Shifts/EditShift";
 
 /* 
   ! ControlCalendar
@@ -90,6 +89,37 @@ const ControlCalendar = ({ token }) => {
 
   const handleEdit = (shift) => {
     setSelectedShift(shift);
+    console.log(shift)
+  };
+
+  const handleUpdate = async (updatedShift) => {
+    try {
+      const response = await fetch(`${API_SCHEDULE_UPDATE_SHIFT_BY_ID}/${updatedShift.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `${token}`,
+        },
+        body: JSON.stringify(updatedShift),
+      });
+
+      if (response.ok) {
+        // Update the local shifts data
+        setFetchedShifts((prevShifts) => {
+          const updatedShifts = prevShifts.map((shift) =>
+            shift.id === updatedShift.id ? { ...shift, ...updatedShift } : shift
+          );
+          return updatedShifts;
+        });
+
+        // Clear the selectedShift
+        setSelectedShift(null);
+      } else {
+        console.error('Failed to update shift. Status:', response.status);
+      }
+    } catch (error) {
+      console.error('Error updating shift:', error);
+    }
   };
 
 
@@ -99,32 +129,54 @@ const ControlCalendar = ({ token }) => {
       <strong>{event.title}</strong>
       <p>Address: {event.address}</p>
       <div style={{ position: 'absolute', top: 0, right: 0 }}>
-        <button onClick={() => handleEdit(event)}>Edit</button>
-        <button onClick={() => handleDelete(event.id)}>X</button>
+        <button
+          onClick={() => handleEdit(event)}
+          style={{
+            backgroundColor: 'lightyellow',
+            borderRadius: '5px', // You can adjust the border radius as needed
+            color: 'black', // Set text color to contrast with the light yellow background
+            border: 'none', // Remove the default button border
+            padding: '5px', // Add padding for better aesthetics
+          }}
+        >
+          <i className="fas fa-edit"></i>
+        </button>
+        <button
+          onClick={() => handleDelete(event.id)}
+          style={{
+            backgroundColor: 'red',
+            borderRadius: '5px', // You can adjust the border radius as needed
+            color: 'black', // Set text color to contrast with the light yellow background
+            border: 'none', // Remove the default button border
+            padding: '5px', // Add padding for better aesthetics
+          }}
+        >
+          <i className="fa-solid fa-trash"></i>
+        </button>
       </div>
     </div>
   );
 
   return (
     <div>
-      <Calendar
-        events={fetchedShifts}
-        components={{
-          event: (props) => <EventComponent {...props} />,
-        }}
-        eventPropGetter={eventStyleGetter}
-      />
-  
+      <div>
+        <Calendar
+          events={fetchedShifts}
+          components={{
+            event: (props) => <EventComponent {...props} />,
+          }}
+          eventPropGetter={eventStyleGetter}
+        />
+    </div>
+    <div>
       <AddShift
         token={token}
+        shiftToUpdate={selectedShift}
+        onUpdate={handleUpdate}
+        onCancel={() => setSelectedShift(null)}
       />
 
-    <EditShift
-      token={token}
-      // Pass handleUpdate as a prop
-      shiftToUpdate={selectedShift}
-    />
-
+    </div>
     </div>
   );
 };

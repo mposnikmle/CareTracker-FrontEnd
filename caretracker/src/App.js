@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/header-section/Header";
 import Auth from "./components/authorization-section/Auth";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // import Login from "./components/authorization-section/Login";
 import Signup from "./components/authorization-section/Signup";
@@ -23,6 +24,7 @@ import {
   IncorrectPage
 } from "./components/pages/routeIndex";
 import UserProps from "./components/UserProps";
+import { MedicationRecord } from "./components/medication-section/MedicationRecord";
 
 function App() {
   const [token, setToken] = useState("");
@@ -72,7 +74,7 @@ function App() {
                       element={<AdvancedCalendar token={token} />}
                     />
                     <Route path="/note" element={<Note />} />
-                    <Route path="/medication" element={<Medication />} />
+                    <Route path="/medication" element={<MedicationRecord />} />
                     <Route path="/openshifts" element={<OpenShifts />} />
                     <Route path="/profile" element={<StaffProfile />} />
                     <Route path="/miscellaneous" element={<Miscellaneous />} />
