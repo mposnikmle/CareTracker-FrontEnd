@@ -36,23 +36,25 @@ const Signup = (props) => {
 
       const data = await response.json();
 
-
       console.log(data);
       props.updateToken(data.token);
       navigate("/");
     } catch (error) {
       console.error(error);
     }
-
   }
 
   return (
     <>
-    <h2>REGISTER</h2>
+      <h2>REGISTER</h2>
       <Form>
         <FormGroup>
           <Label for="company">Company</Label>
-          <select id="company" name="company" /*value={company}*/ onChange={(e) => setCompany(e.target.value)}>
+          <select
+            id="company"
+            name="company"
+            /*value={company}*/ onChange={(e) => setCompany(e.target.value)}
+          >
             <option value="">--Please choose an option--</option>
             <option value="comp1">company 1</option>
             <option value="comp2">company 2</option>
@@ -61,7 +63,11 @@ const Signup = (props) => {
         </FormGroup>
         <FormGroup>
           <Label for="role">Role</Label>
-          <select id="role" name="role" /*value={company}*/ onChange={(e) => setRole(e.target.value)}>
+          <select
+            id="role"
+            name="role"
+            /*value={company}*/ onChange={(e) => setRole(e.target.value)}
+          >
             <option value="">--Please choose an option--</option>
             <option value="dsp">Direct Service Professional</option>
             <option value="house-manager">House Manager</option>

@@ -38,6 +38,7 @@ body {
   position: absolute;
   padding: 2px 8px 4px;
   width: 18rem;
+  height: 34rem;
   margin-top: 7rem;
   margin-bottom: 2rem;
   margin-left: 2rem;
@@ -78,16 +79,18 @@ a:active {
 }
 
 #nurseBackground {
-  width: 60vw;
-  height: 80vh;
+  width: 40vw;
+  height: 60vh;
   margin-left: 12vw;
+  margin-right: 1rem;
+  float: left;
 }
 
 .homeIntro {
-  border: solid black 0.15rem;
-  width: 60vw;
+  /* border: solid black 0.15rem; */
   margin-left: 12vw;
-  /* margin-right: 12vw; */
+  font-weight: 600;
+  width: 50rem;
 }
 
 /* attempting to set the page to a fixed state */
