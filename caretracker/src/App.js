@@ -27,11 +27,13 @@ import { MedicationRecord } from "./components/medication-section/MedicationReco
 
 function App() {
   const [token, setToken] = useState("");
+  const [staff, setStaff] = useState("")
   // const [role, setRole] = useState("DSP");
 
-  function updateToken(newToken) {
+  function updateToken(newToken, newStaff) {
     if (newToken) {
       setToken(newToken);
+      setStaff(newStaff)
       localStorage.setItem("token", newToken);
     }
   }
@@ -86,7 +88,7 @@ function App() {
                         <Route path="/note" element={<Note />} />
                         <Route path="/medication" element={<MedicationRecord />} />
                         <Route path="/openshifts" element={<OpenShifts />} />
-                        <Route path="/profile" element={<StaffProfile />} />
+                        <Route path="/profile" element={<StaffProfile token={token} staff={staff}/>} />
                         <Route path="/miscellaneous" element={<Miscellaneous />} />
                         <Route path="/maintenance" element={<Maintenance />} />
                         <Route path="*" element={<IncorrectPage />} />

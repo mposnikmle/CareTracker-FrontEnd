@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../App.css";
 import "./StaffProfile.css";
 
-// Replace these values with actual staff data
-const staffName = "John Doe";
-const staffRole = "Direct Service Provider";
-const staffEmail = "john.doe@example.com";
-
 function StaffProfile(props) {
+  const { token, staff } = props;
+
+  console.log(props.staff)
+
   return (
     <>
       <div class="profile">
@@ -20,22 +19,26 @@ function StaffProfile(props) {
               />
             </div>
             <div class="profile_headerdata">
-              <h1>{staffName}</h1>
-              <h2>{staffEmail}</h2>
+              <h1>{staff.firstname} {staff.lastname}</h1>
+              <h2>{staff.email}</h2>
             </div>
           </div>
         </div>
         <div class="profile_body">
           <div class="profile_role">
-            <h2>{staffRole}</h2>
+            <h2>{staff.role}</h2>
           </div>
           <div class="profile_content">
-            <h1>PTO: </h1>
-            <h2>99.99</h2>
+            <h1>PTO Balance: </h1>
+            <h2>0.0</h2>
           </div>
           <div class="certification">
             <h1>Certification:</h1>
-            <h2>Expiring: 09/13/24</h2>
+            <h2>CRMA: </h2>
+            <h2>CPR: </h2>
+            <h2>Driver's License: </h2>
+            <h2>Sexual Harrassment: </h2>
+            <h2>Work Authorization: </h2>
           </div>
           <div className="profile_wages">
             <h1>Hourly Rate:</h1>
