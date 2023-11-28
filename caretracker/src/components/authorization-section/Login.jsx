@@ -39,9 +39,7 @@ const Login = (props) => {
 
   return (
     <>
-        {/* <div className="d-flex justify-content-center mt-5"> */}
-            {/* <div className="secondary-background p-5 rounded" style={{width: "450px", height: "370px"}}> */}
-                <h2 /*className="text-center font-primary bold"*/>LOGIN</h2>
+                <h2>LOGIN</h2>
                 <Form>
                     <FormGroup>
                         <Label for="email">Email</Label>
@@ -67,8 +65,6 @@ const Login = (props) => {
                     </FormGroup>
                     <Button title="Login" onClick={handleSubmit}>Login</Button>
                 </Form>
-            {/* </div> */}
-        {/* </div>       */}
     </>
   );
 };
