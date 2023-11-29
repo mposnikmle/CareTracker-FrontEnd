@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/header-section/Header";
 import Auth from "./components/authorization-section/Auth";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // import Login from "./components/authorization-section/Login";
 import Signup from "./components/authorization-section/Signup";
@@ -55,7 +55,7 @@ function App() {
 
   return (
     <div>
-      <Header />;
+      <Header />
       <div id="wrapper">
         <main className="main">
           <UserProps>
@@ -84,9 +84,15 @@ function App() {
                             />
                           }
                         />
-                        <Route path="/schedule" element={<AdvancedCalendar token={token} />} />
+                        <Route
+                          path="/schedule"
+                          element={<AdvancedCalendar token={token} />}
+                        />
                         <Route path="/note" element={<Note />} />
-                        <Route path="/medication" element={<MedicationRecord />} />
+                        <Route
+                          path="/medication"
+                          element={<MedicationRecord />}
+                        />
                         <Route path="/openshifts" element={<OpenShifts />} />
                         <Route path="/profile" element={<StaffProfile token={token} staff={staff}/>} />
                         <Route path="/miscellaneous" element={<Miscellaneous />} />

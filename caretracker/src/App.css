@@ -102,3 +102,57 @@ a:active {
 .incorrectPage {
   margin-left: 25rem;
 }
+
+#emailBox {
+  display: flex;
+  width: 25rem;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  align-items: center;
+}
+
+#passwordBox {
+  display: flex;
+  width: 25rem;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  align-items: center;
+}
+
+#loginForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20vw;
+  width: 30rem;
+  height: 20rem;
+  border: solid black 0.05rem;
+  border-radius: 1rem;
+}
+
+#email,
+#password {
+  border: solid black 0.02rem;
+  max-width: 20rem;
+  width: 20rem;
+  margin-left: auto;
+}
+
+#loginTitle {
+  margin-left: 50%;
+}
+
+#loginButton {
+  border: solid black 0.04rem;
+  background-color: #124ad7;
+}
+
+#registerButton {
+  margin-top: 5vh;
+  margin-left: 30vw;
+  border: solid black 0.04rem;
+  background-color: #124ad7;
+}

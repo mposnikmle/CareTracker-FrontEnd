@@ -39,13 +39,17 @@ const Login = (props) => {
       navigate("/auth");
       alert("Incorrect password - Please enter correct password");
     }
-}
+  }
 
   return (
     <>
-                <h2>LOGIN</h2>
-                <Form>
-                    <FormGroup>
+      {/* <div className="d-flex justify-content-center mt-5"> */}
+      {/* <div className="secondary-background p-5 rounded" style={{width: "450px", height: "370px"}}> */}
+      <h2 id="loginTitle" /*className="text-center font-primary bold"*/>
+        LOGIN
+      </h2>
+      <Form id="loginForm">
+        <FormGroup>
                         <Label for="company">Company</Label>
                         <select
                             id="company"
@@ -59,30 +63,32 @@ const Login = (props) => {
                             <option value="comp3">company 3</option>
                         </select>
                     </FormGroup>
-                    <FormGroup>
-                        <Label for="email">Email</Label>
-                        <Input
-                            id="email"
-                            name="email"
-                            placeholder="Enter Email Address"
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="password">Password</Label>
-                        <Input
-                            id="password"
-                            name="password"
-                            placeholder="Enter Password"
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </FormGroup>
-                    <Button title="Login" onClick={handleSubmit}>Login</Button>
-                </Form>
+        <FormGroup id="emailBox">
+          <Label for="email">Email</Label>
+          <Input
+            id="email"
+            name="email"
+            placeholder="Enter Email Address"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup id="passwordBox">
+          <Label for="password">Password</Label>
+          <Input
+            id="password"
+            name="password"
+            placeholder="Enter Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </FormGroup>
+        <Button id="loginButton" title="Login" onClick={handleSubmit}>
+          Login
+        </Button>
+      </Form>
     </>
   );
 };
