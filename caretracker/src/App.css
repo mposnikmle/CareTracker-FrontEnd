@@ -29,7 +29,8 @@ body {
 
 .navBar {
   background-color: transparent;
-  border-style: dotted;
+  border: 1px solid #ddd; /* Example: Add a border to the calendar */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   border-radius: 1rem;
   display: flex;
   justify-content: space-between;
@@ -60,6 +61,7 @@ body {
 
 .greeting {
   text-align: center;
+  margin-left: 5.5rem;
 }
 
 a,
@@ -81,14 +83,17 @@ a:active {
 #nurseBackground {
   width: 40vw;
   height: 60vh;
-  margin-left: 12vw;
+  margin-left: 10rem;
   margin-right: 1rem;
   float: left;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .homeIntro {
   /* border: solid black 0.15rem; */
-  margin-left: 12vw;
+  margin-left: 9rem;
   font-weight: 600;
   width: 50rem;
 }

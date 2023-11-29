@@ -30,7 +30,7 @@ const Auth = (props) => {
             } */}
 
             <Login updateToken={props.updateToken} />
-            <Button onClick={handleRegister}>Register New Staff Member</Button>
+            {/* <Button onClick={handleRegister}>Register New Staff Member</Button> */}
 
             {/* <button onClick={handleToggle}>Register New Staff Member</button> */}
         </>

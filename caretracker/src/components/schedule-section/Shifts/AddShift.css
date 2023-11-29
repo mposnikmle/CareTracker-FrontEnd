@@ -11,6 +11,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-size: 18px; /* Adjust the font size */
     margin-left: 2px; /* Adjust the left margin */
+    border: 1px solid round #ddd;
 }
 
 .add-shift-form.edit-mode {
