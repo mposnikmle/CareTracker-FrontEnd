@@ -42,7 +42,7 @@ function StaffProfile(props) {
           </div>
           <div className="profile_wages">
             <h1>Hourly Rate:</h1>
-            <h2>22.50</h2>
+            <h2>$22.50</h2>
           </div>
         </div>
       </div>

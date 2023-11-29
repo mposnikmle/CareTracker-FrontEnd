@@ -15,8 +15,8 @@ const Home = ({ user, updateUser }) => {
           {/* Hello, {user.firstName}! Your role is {user.role} */}
           <img
             id="nurseBackground"
-            src="https://media.istockphoto.com/id/1461280039/photo/smiling-young-asian-woman-nurse-wearing-blue-uniform-with-stethoscope-holding-hands-in.jpg?s=1024x1024&w=is&k=20&c=1uy0RBN0tJWZ8PCliImnfC-piQgkw10-occKG1HHKPU="
-            alt="nurse"
+            src="https://images.unsplash.com/photo-1590105577767-e21a1067899f?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="nurses"
           ></img>
           <p className="homeIntro">
             Discover the heart of care at CareTracker, where most programs

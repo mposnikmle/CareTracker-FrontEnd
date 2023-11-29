@@ -2,7 +2,7 @@
 
 .profile {
   display: flex;
-  background-color: #c6e7fd;
+  background-color: #6fc1fc;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -12,11 +12,12 @@
   overflow: hidden;
   flex-wrap: wrap;
   margin-left: 10rem;
+  margin-top: -6px;
 }
 
 .profile_header {
-  background-color: #6fc1fc;
-  color: #000000;
+  background-color: #124ad7;
+  color: white;
   padding: 50px;
   width: 100%;
   box-sizing: border-box;

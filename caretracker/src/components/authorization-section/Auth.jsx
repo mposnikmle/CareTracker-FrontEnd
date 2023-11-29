@@ -33,6 +33,7 @@ const Auth = (props) => {
         Register New Staff Member
       </Button>
 
+
       {/* <button onClick={handleToggle}>Register New Staff Member</button> */}
     </>
   );

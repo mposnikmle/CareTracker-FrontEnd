@@ -1,12 +1,13 @@
 /* medicationRecord.css */
 .medication-container {
-    background-color: #0077cc;
+    background-color: #124ad7;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     /* Added Margin here for navbar */
-    margin-left: 200px;
+    margin-left: 10rem;
+    margin-top: -6px;
 }
 
 .medication-details-container {
