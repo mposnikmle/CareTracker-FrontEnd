@@ -4,6 +4,7 @@ import { API_STAFF_LOGIN } from "../../constants/endpoints";
 import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
+  const [company, setCompany] = useState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Login = (props) => {
       myHeaders.append("Content-Type", "application/json");
 
       const body = {
+        company: company,
         email: email,
         password: password
       };
@@ -34,6 +36,8 @@ const Login = (props) => {
       navigate("/");
     } catch (error) {
       console.error(error);
+      navigate("/auth");
+      alert("Incorrect password - Please enter correct password");
     }
   }
 
@@ -45,6 +49,20 @@ const Login = (props) => {
         LOGIN
       </h2>
       <Form id="loginForm">
+        <FormGroup>
+                        <Label for="company">Company</Label>
+                        <select
+                            id="company"
+                            name="company"
+                            /*value={company}*/ 
+                            onChange={(e) => setCompany(e.target.value)}
+                        >
+                            <option value="">--Please choose an option--</option>
+                            <option value="comp1">company 1</option>
+                            <option value="comp2">company 2</option>
+                            <option value="comp3">company 3</option>
+                        </select>
+                    </FormGroup>
         <FormGroup id="emailBox">
           <Label for="email">Email</Label>
           <Input
@@ -71,7 +89,6 @@ const Login = (props) => {
           Login
         </Button>
       </Form>
-
     </>
   );
 };
