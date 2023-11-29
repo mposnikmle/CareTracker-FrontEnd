@@ -28,8 +28,9 @@ const Login = (props) => {
 
       const data = await response.json();
 
-      console.log(data);
-      props.updateToken(data.token);
+
+      props.updateToken(data.token, data.staff);
+      console.log(data.staff)
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -70,6 +71,7 @@ const Login = (props) => {
           Login
         </Button>
       </Form>
+
     </>
   );
 };
