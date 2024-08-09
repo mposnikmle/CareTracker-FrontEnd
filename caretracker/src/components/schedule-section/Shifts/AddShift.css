@@ -1,0 +1,19 @@
+/* AddShiftForm.css */
+.add-shift-form {
+    position: relative;
+    top: -70vh;
+    right: 10px; /* Add a small margin between the right of the page and the form */
+    transform: translateX(450%);
+    padding: 10px;
+    width: 270px; /* Adjust the width */
+    height: 350px; /* Adjust the height */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px; /* Adjust the font size */
+    margin-left: 2px; /* Adjust the left margin */
+    border: 1px solid round #ddd;
+}
+
+.add-shift-form.edit-mode {
+    background-color: lightyellow; /* Set your desired background color */
+}

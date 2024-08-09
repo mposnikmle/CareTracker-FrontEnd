@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
+
+:root {
+  --primary: #0dd093;
+  --secondary: #8fff9f;
+  --backgroundColor: #011b16;
+  --neutral: #b6ffad;
+}
+
+body {
+  background: var(--neutral);
+}
+
+.primary-background {
+  background: var(--primary);
+}
+
+.secondary-background {
+  background: var(--secondary);
+}
+
+.neutral-background {
+  background: var(--neutral);
+}
+
+.font-primary {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navBar {
+  background-color: transparent;
+  border: 1px solid #ddd; /* Example: Add a border to the calendar */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  padding: 2px 8px 4px;
+  width: 18rem;
+  height: 34rem;
+  margin-top: 7rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.logo {
+  background-color: #124ad7; /* Keep the background color */
+  color: white;
+  padding: 20px;
+  font-family: "Gill Sans",  Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 700;
+  box-shadow: 0 3px 6px 2px black;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.greeting {
+  text-align: center;
+  margin-left: 5.5rem;
+}
+
+a,
+a:link,
+a:active {
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.helloUser,
+.loginUser {
+  text-align: center;
+}
+
+#nurseBackground {
+  width: 40vw;
+  height: 60vh;
+  margin-left: 10rem;
+  margin-right: 1rem;
+  float: left;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.homeIntro {
+  /* border: solid black 0.15rem; */
+  margin-left: 9rem;
+  font-weight: 600;
+  width: 50rem;
+}
+
+/* attempting to set the page to a fixed state */
+#wrapper {
+  width: 59rem;
+  margin-left: 12rem;
+}
+
+.incorrectPage {
+  margin-left: 25rem;
+}
+
+#emailBox {
+  display: flex;
+  width: 25rem;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  align-items: center;
+}
+
+#passwordBox {
+  display: flex;
+  width: 25rem;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  align-items: center;
+}
+
+#loginForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20vw;
+  width: 30rem;
+  height: 20rem;
+  border: solid black 0.05rem;
+  border-radius: 1rem;
+}
+
+#email,
+#password {
+  border: solid black 0.02rem;
+  max-width: 20rem;
+  width: 20rem;
+  margin-left: auto;
+}
+
+#loginTitle {
+  margin-left: 50%;
+}
+
+#loginButton {
+  border: solid black 0.04rem;
+  background-color: #124ad7;
+}
+
+#registerButton {
+  margin-top: 5vh;
+  margin-left: 30vw;
+  border: solid black 0.04rem;
+  background-color: #124ad7;
+}
